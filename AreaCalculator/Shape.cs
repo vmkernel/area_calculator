@@ -2,7 +2,7 @@
 
 public abstract class Shape
 {
-    public abstract double Area { get; }
+    public abstract double Area { get; protected set; }
 
     protected static int NormalizeLength(int length)
     {

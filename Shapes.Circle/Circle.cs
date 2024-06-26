@@ -2,16 +2,13 @@
 
 public class Circle : Shape
 {
-    private readonly double area;
-
-    public override double Area => 
-        this.area;
+    public override double Area { get; protected set; }
 
     public int Radius { get; init; }
 
     public Circle(int radius)
     {
         this.Radius = Shape.NormalizeLength(radius);
-        this.area = this.GetArea();
+        this.Area = this.GetArea();
     }
 }

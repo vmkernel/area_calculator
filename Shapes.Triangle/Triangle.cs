@@ -2,10 +2,7 @@
 
 public class Triangle : Shape
 {
-    private readonly double area;
-
-    public override double Area =>
-        this.area;
+    public override double Area { get; protected set; }
 
     public int SideA { get; init; }
 
@@ -22,7 +19,7 @@ public class Triangle : Shape
         this.SideC = Shape.NormalizeLength(c);
 
         this.IsRight = Triangle.IsRightTriangle(this);
-        this.area = this.GetArea();
+        this.Area = this.GetArea();
     }
 
     private static bool IsRightTriangle(Triangle triangle)
