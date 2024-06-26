@@ -18,7 +18,7 @@ public static class AreaCalculator
 
     static AreaCalculator()
     {
-        RegisteredCalculators = ImplementationMapper.Discover(typeof(IAreaCalculator<>));
+        AreaCalculator.RegisteredCalculators = ImplementationMapper.Discover(typeof(IAreaCalculator<>));
     }
 
     /// <summary>
@@ -65,7 +65,7 @@ public static class AreaCalculator
 
             if (result is not null)
             {
-                MethodCache.TryAdd(shapeType, result);
+                AreaCalculator.MethodCache.TryAdd(shapeType, result);
             }
         }
         
