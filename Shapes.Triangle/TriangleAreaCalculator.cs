@@ -5,7 +5,7 @@ public class TriangleAreaCalculator : IAreaCalculator<Triangle>
     public double GetArea(Triangle shape)
     {
         var height = GetHeight(shape);
-        var result = (shape.SideA * height) / 2;
+        var result = (shape.SideA * height) / (double)2;
 
         return result;
     }
@@ -15,7 +15,7 @@ public class TriangleAreaCalculator : IAreaCalculator<Triangle>
         var p = GetHalfPerimeter(triangle);
 
         var sqrtParam = p * ((p - triangle.SideA) * (p - triangle.SideB) * (p - triangle.SideC));
-        var result = 2 / triangle.SideA * Math.Sqrt(sqrtParam);
+        var result = (double)2 / triangle.SideA * Math.Sqrt(sqrtParam);
 
         return result;
     }
