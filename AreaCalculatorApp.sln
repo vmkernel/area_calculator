@@ -3,17 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shapes.Circle", "Shapes.Circle\Shapes.Circle.csproj", "{DB417232-70B3-46BE-99B4-ADB2F2E1355F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shapes.Circle", "Shapes.Circle\Shapes.Circle.csproj", "{DB417232-70B3-46BE-99B4-ADB2F2E1355F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaCalculator", "AreaCalculator\AreaCalculator.csproj", "{5FC4AC4F-1E90-4774-98A1-105E5A61EAD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaCalculator", "AreaCalculator\AreaCalculator.csproj", "{5FC4AC4F-1E90-4774-98A1-105E5A61EAD9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shapes", "Shapes", "{2745C00E-EFD5-4621-A3D1-D66F2D1C7782}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shapes.Triangle", "Shapes.Triangle\Shapes.Triangle.csproj", "{3D9ADEC9-2046-436F-8676-A81F4217B583}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shapes.Triangle", "Shapes.Triangle\Shapes.Triangle.csproj", "{3D9ADEC9-2046-436F-8676-A81F4217B583}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shapes", "ShapeBase\Shapes.csproj", "{ACCAD415-CE99-496E-B3CB-4FBF183FF474}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaCalculatorApp", "AreaCalculatorApp\AreaCalculatorApp.csproj", "{A8C84518-94D1-436D-86B0-ECDEE920547E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaCalculatorApp", "AreaCalculatorApp\AreaCalculatorApp.csproj", "{A8C84518-94D1-436D-86B0-ECDEE920547E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +31,6 @@ Global
 		{3D9ADEC9-2046-436F-8676-A81F4217B583}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D9ADEC9-2046-436F-8676-A81F4217B583}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D9ADEC9-2046-436F-8676-A81F4217B583}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ACCAD415-CE99-496E-B3CB-4FBF183FF474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACCAD415-CE99-496E-B3CB-4FBF183FF474}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACCAD415-CE99-496E-B3CB-4FBF183FF474}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACCAD415-CE99-496E-B3CB-4FBF183FF474}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A8C84518-94D1-436D-86B0-ECDEE920547E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A8C84518-94D1-436D-86B0-ECDEE920547E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8C84518-94D1-436D-86B0-ECDEE920547E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,7 +42,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DB417232-70B3-46BE-99B4-ADB2F2E1355F} = {2745C00E-EFD5-4621-A3D1-D66F2D1C7782}
 		{3D9ADEC9-2046-436F-8676-A81F4217B583} = {2745C00E-EFD5-4621-A3D1-D66F2D1C7782}
-		{ACCAD415-CE99-496E-B3CB-4FBF183FF474} = {2745C00E-EFD5-4621-A3D1-D66F2D1C7782}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E9E89372-04D9-4958-97E9-3C323E18A375}

@@ -1,4 +1,4 @@
-﻿namespace Shapes.Triangle;
+﻿namespace AreaCalculation.Shapes.Triangle;
 
 public class Triangle : Shape
 {

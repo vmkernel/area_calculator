@@ -1,4 +1,4 @@
-﻿namespace Shapes.Circle;
+﻿namespace AreaCalculation.Shapes.Circle;
 
 public class Circle : Shape
 {

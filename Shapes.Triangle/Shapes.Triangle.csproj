@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AreaCalculator\AreaCalculator.csproj" />
-    <ProjectReference Include="..\ShapeBase\Shapes.csproj" />
   </ItemGroup>
 
 </Project>

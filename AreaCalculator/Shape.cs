@@ -1,4 +1,4 @@
-﻿namespace Shapes;
+﻿namespace AreaCalculation.Shapes;
 
 public abstract class Shape
 {

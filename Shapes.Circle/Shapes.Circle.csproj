@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ShapeBase\Shapes.csproj" />
+    <ProjectReference Include="..\AreaCalculator\AreaCalculator.csproj" />
   </ItemGroup>
 
 </Project>
