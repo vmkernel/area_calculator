@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 
 namespace AreaCalculation
 {
@@ -12,30 +8,75 @@ namespace AreaCalculation
     public static class ImplementationMapper
     {
         /// <summary>
-        /// Looks up all implementations of the <paramref name="marker"/> type (interface or a base class) in the current <see cref="AppDomain"/>
+        /// Gets up all implementations info of the marker type in the current <see cref="AppDomain"/>.
         /// </summary>
-        /// <param name="marker">A marker type</param>
-        /// <returns>A <see cref="Dictionary{TKey, TValue}"/> map where TKey is a data type for which the implementation is found, and a TValue is the implementing type. If no types are found, returns an empty dictionary.</returns>
-        public static Dictionary<Type, Type> Discover(Type marker)
+        /// <param name="marker">A marker type (interface or a base class)</param>
+        /// <returns>A <see cref="Dictionary{TKey, TValue}"/> map where TKey is a data type for which the implementation is found, and a TValue a <see cref="CalculationAlgorithm"/> info class containing information of the discovered algorithm. If nothing is found, returns an empty dictionary.</returns>
+        public static Dictionary<Type, CalculationAlgorithm> Discover(Type marker)
         {
-            var result = new Dictionary<Type, Type>();
+            var implementations = ImplementationMapper.GetImplementations(marker);
+            var result = ImplementationMapper.CreateMap(implementations);
 
-            var implementations =
+            return result;
+        }
+
+        /// <summary>
+        /// Gets up all implementations of the marker type in the current <see cref="AppDomain"/>.
+        /// </summary>
+        /// <param name="marker">A marker type (interface or a base class)</param>
+        /// <returns>A collection key-value pairs (tuple) where key is an implementing type and value is a target type of the implementation. If nothing is found, returns an empty collection.</returns>
+        private static ICollection<(Type, Type)> GetImplementations(Type marker)
+        {
+            var result =
                 from assembly in AppDomain.CurrentDomain.GetAssemblies()
                 from type in assembly.GetTypes()
                 from iface in type.GetInterfaces()
                 where iface.IsGenericType
                 where iface.GetGenericTypeDefinition() == marker
-                let parameter = iface.GenericTypeArguments.FirstOrDefault()
-                select (type, parameter);
+                let implementer = type
+                let targetType = iface.GenericTypeArguments.FirstOrDefault()
+                select (implementer, targetType);
 
-            foreach (var (calculator, type) in implementations)
+            return result.ToArray();
+        }
+
+        /// <summary>
+        /// Creates a map for the specified collection of implementing types and correspondin target types.
+        /// </summary>
+        /// <param name="implementations">A collection key-value pairs (tuple) where key is an implementing type and value is a target type of the implementation.</param>
+        /// <returns>A <see cref="Dictionary{TKey, TValue}"/> map where TKey is a target type for which the implementation is found, and a TValue a <see cref="CalculationAlgorithm"/> info class containing information of the discovered algorithm. If nothing is found, returns an empty dictionary.</returns>
+        private static Dictionary<Type, CalculationAlgorithm> CreateMap(ICollection<(Type, Type)> implementations)
+        {
+            var result = new Dictionary<Type, CalculationAlgorithm>();
+
+            foreach (var (implementer, targetType) in implementations)
             {
-                if (calculator is not null && type is not null)
+                var targetMethod = ImplementationMapper.GetMethod(implementer, targetType);
+                if (targetMethod is not null)
                 {
-                    result.TryAdd(type, calculator);
+                    var algorithmInfo = new CalculationAlgorithm(implementer, targetMethod);
+                    result.TryAdd(targetType, algorithmInfo);
                 }
             }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Gets a method corresponting to the specified target type from the specified implementing type.
+        /// </summary>
+        /// <param name="implementer">An implementing type of the algorithm.</param>
+        /// <param name="targetType">A target type of the method to be discovered.</param>
+        /// <returns>A method corresponting to the <paramref name="targetType"/> from the <paramref name="implementer"/> type. Null - if no matched method is found.</returns>
+        private static MethodInfo? GetMethod(Type implementer, Type targetType)
+        {
+            var result =
+                (from method in implementer.GetMethods()
+                 where method.GetParameters().Count() == 1
+                 from parameter in method.GetParameters()
+                 where parameter.ParameterType == targetType
+                 select method)
+                .FirstOrDefault();
 
             return result;
         }
