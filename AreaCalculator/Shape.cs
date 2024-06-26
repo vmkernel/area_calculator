@@ -1,5 +1,8 @@
-﻿namespace Shapes;
+﻿namespace AreaCalculation.Shapes;
 
+/// <summary>
+/// A base shape primitive.
+/// </summary>
 public abstract class Shape
 {
     protected static int NormalizeLength(int length)

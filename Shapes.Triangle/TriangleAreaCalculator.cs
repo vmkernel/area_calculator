@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace AreaCalculation.Shapes.Triangle;
 
-namespace Shapes.Triangle;
-
-public static class TriangleAreaExtension
+public class TriangleAreaCalculator : IAreaCalculator<Triangle>
 {
-    public static double GetArea(this Triangle triangle)
+    public double GetArea(Triangle shape)
     {
-        var height = GetHeight(triangle);
-        var result = (triangle.SideA * height) / 2;
+        var height = GetHeight(shape);
+        var result = (shape.SideA * height) / 2;
 
         return result;
-
     }
+
     private static double GetHeight(Triangle triangle)
     {
         var p = GetHalfPerimeter(triangle);

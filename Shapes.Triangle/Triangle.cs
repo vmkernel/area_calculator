@@ -1,12 +1,9 @@
-﻿namespace Shapes.Triangle;
+﻿using AreaCalculation.Shapes;
+
+namespace AreaCalculation.Shapes.Triangle;
 
 public class Triangle : Shape
 {
-    private readonly double area;
-
-    public override double Area =>
-        this.area;
-
     public int SideA { get; init; }
 
     public int SideB { get; init; }
@@ -18,7 +15,5 @@ public class Triangle : Shape
         this.SideA = Shape.NormalizeLength(a);
         this.SideB = Shape.NormalizeLength(b);
         this.SideC = Shape.NormalizeLength(c);
-
-        this.area = this.GetArea();
     }
 }

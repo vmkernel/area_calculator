@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ShapeBase\Shapes.csproj" />
-  </ItemGroup>
-
 </Project>

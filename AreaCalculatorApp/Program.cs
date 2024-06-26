@@ -1,7 +1,6 @@
-﻿using Shapes.Circle;
-using Shapes.Triangle;
-using Shapes;
-using AreaCalculation;
+﻿using AreaCalculation;
+using AreaCalculation.Shapes.Circle;
+using AreaCalculation.Shapes.Triangle;
 
 namespace AreaCalculatorApp;
 
